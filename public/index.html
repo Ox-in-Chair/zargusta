@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZARgusta — Augusta 2036 Bitcoin Fund</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏌️</text></svg>">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h1>🏌️ ZARgusta</h1>
+      <p class="subtitle">Augusta 2036 Fund</p>
+      <nav>
+        <a href="#dashboard" class="nav-link active" data-view="dashboard">📊 Dashboard</a>
+        <a href="#members" class="nav-link" data-view="members">👥 Members</a>
+        <a href="#purchases" class="nav-link" data-view="purchases">₿ Purchases</a>
+        <a href="#contributions" class="nav-link" data-view="contributions">💰 Contributions</a>
+      </nav>
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="stat-label">Live BTC/ZAR</div>
+        <div id="sidebar-price" class="stat-value" style="font-size:18px;">—</div>
+        <div id="sidebar-change" class="stat-change">—</div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+      <!-- Dashboard View -->
+      <section id="view-dashboard">
+        <h2 style="font-size:20px; margin-bottom:24px;">Fund Overview</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total BTC</div>
+            <div class="stat-value" id="total-btc">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Portfolio Value (ZAR)</div>
+            <div class="stat-value" id="portfolio-zar">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total Invested</div>
+            <div class="stat-value" id="total-invested">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Profit / Loss</div>
+            <div class="stat-value" id="pnl">—</div>
+            <div class="stat-change" id="pnl-pct">—</div>
+          </div>
+        </div>
+
+        <!-- Augusta Progress -->
+        <div class="card">
+          <div class="card-title">Augusta 2036 Progress</div>
+          <div class="progress-track">
+            <div class="progress-fill" id="augusta-bar" style="width:0%"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px;">
+            <span id="augusta-pct" class="text-amber">0%</span>
+            <span class="text-muted">Target: R1,000,000</span>
+          </div>
+          <div class="text-muted" style="font-size:13px; margin-top:8px;">
+            <span id="days-left">—</span> days remaining
+          </div>
+        </div>
+
+        <!-- Per-member breakdown -->
+        <div class="card">
+          <div class="card-title">Per Member Share</div>
+          <div style="display:flex; gap:24px;">
+            <div>
+              <div class="stat-label">BTC Share</div>
+              <div class="stat-value" style="font-size:18px;" id="member-btc">—</div>
+            </div>
+            <div>
+              <div class="stat-label">Value (ZAR)</div>
+              <div class="stat-value" style="font-size:18px;" id="member-zar">—</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Members View -->
+      <section id="view-members" class="hidden">
+        <h2 style="font-size:20px; margin-bottom:24px;">Members</h2>
+        <div class="card" id="members-list"></div>
+      </section>
+
+      <!-- Purchases View -->
+      <section id="view-purchases" class="hidden">
+        <h2 style="font-size:20px; margin-bottom:24px;">BTC Purchases</h2>
+        <div class="card table-wrap" id="purchases-table"></div>
+      </section>
+
+      <!-- Contributions View -->
+      <section id="view-contributions" class="hidden">
+        <h2 style="font-size:20px; margin-bottom:24px;">Contributions</h2>
+        <div class="card table-wrap" id="contributions-table"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

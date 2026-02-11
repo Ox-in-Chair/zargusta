@@ -1,0 +1,28 @@
+{
+  "total_contributions_zar": 99600,
+  "total_btc_acquired": 5478,
+  "number_of_purchases": 39,
+  "number_of_contributions": 357,
+  "active_members": 7,
+  "total_members_all_time": 9,
+  "member_contributions": {
+    "Salad": 13000,
+    "Just": 13000,
+    "Jan": 13000,
+    "Rich Nischk": 8600,
+    "Ox": 13000,
+    "Frank": 4800,
+    "Flanners": 13000,
+    "Jerry": 13000,
+    "Mearp": 8200
+  },
+  "current_share_per_member": 0.0158681,
+  "data_updated": "2025-08-06T23:23:30.030782",
+  "last_btc_purchase": "2025-08-06",
+  "portfolio_value_31_july": 234314.11,
+  "rich_nischk_withdrawal": {
+    "date": "2024-08-31",
+    "btc_amount": 0.01323,
+    "reason": "Member exit - took proportional share"
+  }
+}
