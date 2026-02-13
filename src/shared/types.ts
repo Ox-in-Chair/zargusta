@@ -1,4 +1,4 @@
-/** ZARgusta — Shared Types */
+/** ZARyder Cup — Shared Types */
 
 export interface Member {
   id: number;
@@ -39,6 +39,12 @@ export interface FundInfo {
   memberTransitions: Record<string, string | number>;
 }
 
+export interface MemberShare {
+  contributedZar: number;
+  sharePct: number;
+  btcShare: number;
+}
+
 export interface FundSummary {
   totalContributionsZar: number;
   totalBtcAcquired: number;
@@ -47,14 +53,10 @@ export interface FundSummary {
   activeMembers: number;
   totalMembersAllTime: number;
   memberContributions: Record<string, number>;
-  currentSharePerMember: number;
+  memberShares: Record<string, MemberShare>;
   dataUpdated: string;
   lastBtcPurchase: string;
-  richNischkWithdrawal: {
-    date: string;
-    btcAmount: number;
-    reason: string;
-  };
+  memberTransitions: Record<string, string | number>;
 }
 
 export interface BtcPrice {
@@ -75,8 +77,7 @@ export interface PortfolioSnapshot {
   profitLossPct: number;
   augustaProgress: number;  // 0-100%
   daysToTarget: number;
-  perMemberShareBtc: number;
-  perMemberValueZar: number;
+  perMemberBreakdown: Record<string, { btcShare: number; valueZar: number; sharePct: number }>;
 }
 
 /** Standard API envelope */

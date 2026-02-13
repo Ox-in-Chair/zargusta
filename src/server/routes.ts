@@ -1,20 +1,32 @@
 /** API routes */
 import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
+import { randomUUID } from 'node:crypto';
 import { DataManager } from './data-manager.js';
 import { getCurrentBtcPrice, getBtcHistory } from './btc-price.js';
 import { calculatePortfolio } from './portfolio.js';
 import type { ApiResponse } from '../shared/types.js';
 
 const API_VERSION = '2.0.0';
+const ADMIN_KEY = '6969';
+
+/** Middleware: require X-Admin-Key header on mutation endpoints */
+function requireAdmin(req: Request, res: Response, next: () => void): void {
+  if (req.headers['x-admin-key'] !== ADMIN_KEY) {
+    const err = errorEnvelope('Unauthorized — admin key required', 401);
+    res.status(err.status).json(err.body);
+    return;
+  }
+  next();
+}
 
 function envelope<T>(data: T): ApiResponse<T> {
-  return { success: true, data, meta: { timestamp: new Date().toISOString(), version: API_VERSION } };
+  return { success: true, data, meta: { timestamp: new Date().toISOString(), version: API_VERSION, requestId: randomUUID() } };
 }
 
 function errorEnvelope(error: string, status = 400): { body: ApiResponse<null>; status: number } {
   return {
-    body: { success: false, error, meta: { timestamp: new Date().toISOString(), version: API_VERSION } },
+    body: { success: false, error, meta: { timestamp: new Date().toISOString(), version: API_VERSION, requestId: randomUUID() } },
     status,
   };
 }
@@ -36,6 +48,73 @@ export function createRouter(dm: DataManager): Router {
     res.json(envelope(dm.getActiveMembers()));
   });
 
+  router.get('/members/:id/share', (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    if (!Number.isInteger(id) || id <= 0) {
+      const err = errorEnvelope('Invalid member id');
+      res.status(err.status).json(err.body);
+      return;
+    }
+    const member = dm.getMemberById(id);
+    if (!member) {
+      const err = errorEnvelope('Member not found', 404);
+      res.status(err.status).json(err.body);
+      return;
+    }
+    const summary = dm.getSummary();
+    const share = summary.memberShares[member.name];
+    if (!share) {
+      res.json(envelope({ memberId: id, name: member.name, contributedZar: 0, sharePct: 0, btcShare: 0 }));
+      return;
+    }
+    res.json(envelope({ memberId: id, name: member.name, ...share }));
+  });
+
+  const updateMemberSchema = z.object({
+    status: z.enum(['active', 'left']).optional(),
+    leaveDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  }).refine(d => d.status !== undefined || d.leaveDate !== undefined, { message: 'At least one field required' });
+
+  router.patch('/members/:id', requireAdmin, (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    if (!Number.isInteger(id) || id <= 0) {
+      const err = errorEnvelope('Invalid member id');
+      res.status(err.status).json(err.body);
+      return;
+    }
+    const parsed = updateMemberSchema.safeParse(req.body);
+    if (!parsed.success) {
+      const err = errorEnvelope(parsed.error.issues.map(i => i.message).join('; '));
+      res.status(err.status).json(err.body);
+      return;
+    }
+    const result = dm.updateMember(id, parsed.data);
+    if (!result) {
+      const err = errorEnvelope('Member not found', 404);
+      res.status(err.status).json(err.body);
+      return;
+    }
+    res.json(envelope(result));
+  });
+
+  const addMemberSchema = z.object({
+    name: z.string().min(1),
+    role: z.enum(['admin', 'member']),
+    joinedDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  });
+
+  router.post('/members', requireAdmin, (req: Request, res: Response) => {
+    const parsed = addMemberSchema.safeParse(req.body);
+    if (!parsed.success) {
+      const err = errorEnvelope(parsed.error.issues.map(i => i.message).join('; '));
+      res.status(err.status).json(err.body);
+      return;
+    }
+    const { name, role, joinedDate } = parsed.data;
+    const result = dm.addMember(name, role, joinedDate);
+    res.status(201).json(envelope(result));
+  });
+
   // ── Contributions ──
   router.get('/contributions', (_req: Request, res: Response) => {
     res.json(envelope(dm.getContributions()));
@@ -47,7 +126,7 @@ export function createRouter(dm: DataManager): Router {
     amountZar: z.number().positive(),
   });
 
-  router.post('/contributions', (req: Request, res: Response) => {
+  router.post('/contributions', requireAdmin, (req: Request, res: Response) => {
     const parsed = addContribSchema.safeParse(req.body);
     if (!parsed.success) {
       const err = errorEnvelope(parsed.error.issues.map(i => i.message).join('; '));
@@ -71,7 +150,7 @@ export function createRouter(dm: DataManager): Router {
     notes: z.string().optional(),
   });
 
-  router.post('/purchases', (req: Request, res: Response) => {
+  router.post('/purchases', requireAdmin, (req: Request, res: Response) => {
     const parsed = addPurchaseSchema.safeParse(req.body);
     if (!parsed.success) {
       const err = errorEnvelope(parsed.error.issues.map(i => i.message).join('; '));

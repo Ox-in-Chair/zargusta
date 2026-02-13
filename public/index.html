@@ -3,106 +3,581 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZARgusta — Augusta 2036 Bitcoin Fund</title>
+  <title>ZARyder Cup — Ryder Cup 2031 Bitcoin Fund</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏌️</text></svg>">
 </head>
 <body>
   <div class="app-layout">
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg></button>
+      <div class="mobile-brand">ZARyder Cup</div>
+      <div class="mobile-header-right">
+        <div class="mobile-price" id="mobile-price">—</div>
+      </div>
+    </header>
+
     <!-- Sidebar -->
-    <aside class="sidebar">
-      <h1>🏌️ ZARgusta</h1>
-      <p class="subtitle">Augusta 2036 Fund</p>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <h1>ZARyder Cup</h1>
+        <p class="subtitle">Ryder Cup 2031 Fund</p>
+      </div>
+
+      <!-- Sidebar Live Stats -->
+      <div class="sidebar-stats">
+        <div class="sidebar-stat-block">
+          <div class="stat-label">BTC / ZAR</div>
+          <div class="sidebar-price" id="sidebar-price">—</div>
+          <div class="sidebar-price-change" id="sidebar-change">—</div>
+          <canvas id="sidebar-sparkline" width="232" height="40"></canvas>
+        </div>
+        <div class="sidebar-stat-block">
+          <div class="stat-label">Fund Value</div>
+          <div class="sidebar-fund-value" id="sidebar-fund-value">—</div>
+        </div>
+        <div class="sidebar-stat-block">
+          <div class="stat-label">Active Members</div>
+          <div class="sidebar-members" id="sidebar-members">—</div>
+        </div>
+      </div>
+
       <nav>
-        <a href="#dashboard" class="nav-link active" data-view="dashboard">📊 Dashboard</a>
-        <a href="#members" class="nav-link" data-view="members">👥 Members</a>
-        <a href="#purchases" class="nav-link" data-view="purchases">₿ Purchases</a>
-        <a href="#contributions" class="nav-link" data-view="contributions">💰 Contributions</a>
+        <a href="#dashboard" class="nav-link active" data-view="dashboard">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" /></svg></span> Dashboard
+        </a>
+        <a href="#members" class="nav-link" data-view="members">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg></span> Members
+        </a>
+        <a href="#purchases" class="nav-link" data-view="purchases">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></span> Purchases &amp; Withdrawals
+        </a>
+        <a href="#contributions" class="nav-link" data-view="contributions">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" /></svg></span> Contributions
+        </a>
+
+        <div class="nav-section">Markets</div>
+        <a href="#altcoins" class="nav-link" data-view="altcoins">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M3 20.25h18M3.75 20.25V3.75" /></svg></span> Alt Coins
+        </a>
+        <a href="#forex" class="nav-link" data-view="forex">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></span> Forex
+        </a>
+
+        <div class="nav-section nav-section-collapsible" data-collapse="news-sports">
+          <span>News — Sports</span>
+          <svg class="nav-collapse-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+        </div>
+        <div class="nav-collapsible-group" id="nav-group-news-sports">
+          <a href="#rugby" class="nav-link" data-view="rugby">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .982-3.172M8.25 8.25a4.5 4.5 0 1 1 7.5 0M12 2.25v1.5" /></svg></span> Rugby
+          </a>
+          <a href="#cricket" class="nav-link" data-view="cricket">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .982-3.172M8.25 8.25a4.5 4.5 0 1 1 7.5 0M12 2.25v1.5" /></svg></span> Cricket
+          </a>
+          <a href="#golf" class="nav-link" data-view="golf">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" /></svg></span> Golf
+          </a>
+          <a href="#soccer" class="nav-link" data-view="soccer">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25Z" /></svg></span> Soccer
+          </a>
+          <a href="#tennis" class="nav-link" data-view="tennis">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25Z" /></svg></span> Tennis
+          </a>
+          <a href="#f1news" class="nav-link" data-view="f1news">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" /></svg></span> F1
+          </a>
+        </div>
+
+        <div class="nav-section nav-section-collapsible" data-collapse="news-world">
+          <span>News — World &amp; Business</span>
+          <svg class="nav-collapse-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+        </div>
+        <div class="nav-collapsible-group" id="nav-group-news-world">
+          <a href="#cryptonews" class="nav-link" data-view="cryptonews">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" /></svg></span> Crypto
+          </a>
+          <a href="#worldnews" class="nav-link" data-view="worldnews">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A8.966 8.966 0 0 1 3 12c0-1.264.26-2.466.732-3.558" /></svg></span> World
+          </a>
+          <a href="#sanews" class="nav-link" data-view="sanews">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg></span> South Africa
+          </a>
+          <a href="#businessnews" class="nav-link" data-view="businessnews">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg></span> Business
+          </a>
+          <a href="#technews" class="nav-link" data-view="technews">
+            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z" /></svg></span> Technology
+          </a>
+        </div>
+
+        <div class="nav-section">Trip Planning</div>
+        <a href="#tripplanner" class="nav-link" data-view="tripplanner">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15a2.25 2.25 0 0 1 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" /></svg></span> Planner
+        </a>
+        <a href="#flights" class="nav-link" data-view="flights">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg></span> Flights
+        </a>
+        <a href="#accommodation" class="nav-link" data-view="accommodation">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5M10.5 21H3m1.5 0V3.545m0 0h15.91M5.5 3.545 3 21m16.91-17.455L22 21M6.75 9h.008v.008H6.75V9Zm0 3h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Z" /></svg></span> Accommodation
+        </a>
+        <a href="#budget" class="nav-link" data-view="budget">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" /></svg></span> Budget
+        </a>
+        <div class="nav-section">Admin</div>
+        <a href="#treasurer" class="nav-link" data-view="treasurer">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" /></svg></span>
+          Treasurer
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="12" height="12" style="margin-left:auto;opacity:0.4;"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
+        </a>
       </nav>
-      <div style="margin-top: auto; padding-top: 32px;">
-        <div class="stat-label">Live BTC/ZAR</div>
-        <div id="sidebar-price" class="stat-value" style="font-size:18px;">—</div>
-        <div id="sidebar-change" class="stat-change">—</div>
+
+      <div class="sidebar-footer">
+        <div class="text-muted" style="font-size:11px;">Auto-refreshes every 30s</div>
       </div>
     </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     <!-- Main -->
     <main class="main-content">
       <!-- Dashboard View -->
       <section id="view-dashboard">
-        <h2 style="font-size:20px; margin-bottom:24px;">Fund Overview</h2>
+        <!-- Augusta Progress Hero -->
+        <div class="augusta-hero">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" width="80" height="80" style="position:absolute;right:24px;top:50%;transform:translateY(-50%);opacity:0.08;"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .982-3.172M8.25 8.25a4.5 4.5 0 1 1 7.5 0M12 2.25v1.5" /></svg>
+          <div class="augusta-hero-header">
+            <div>
+              <div class="augusta-hero-title">Ryder Cup 2031</div>
+              <div class="augusta-hero-subtitle">Camiral Golf &amp; Wellness, Girona, Spain — Group Trip Fund</div>
+            </div>
+            <div class="augusta-hero-target">
+              <div class="stat-label">Target</div>
+              <div class="augusta-target-value">R1,000,000</div>
+            </div>
+          </div>
+          <div class="augusta-progress-container">
+            <div class="augusta-progress-track">
+              <div class="augusta-progress-fill" id="augusta-bar" style="width:0%"></div>
+              <div class="augusta-progress-label" id="augusta-pct-label">0%</div>
+            </div>
+          </div>
+          <div class="augusta-meta">
+            <span id="augusta-value" class="text-amber">R0</span>
+            <span class="text-muted">of R1,000,000</span>
+            <span class="augusta-divider">·</span>
+            <span style="white-space:nowrap;"><span id="days-left" class="text-primary-dim">—</span> <span class="text-muted">days remaining</span></span>
+          </div>
+        </div>
 
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-label">Total BTC</div>
-            <div class="stat-value" id="total-btc">—</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Portfolio Value (ZAR)</div>
-            <div class="stat-value" id="portfolio-zar">—</div>
-          </div>
+        <!-- Key Metrics -->
+        <div class="stats-grid stats-grid-4">
           <div class="stat-card">
             <div class="stat-label">Total Invested</div>
             <div class="stat-value" id="total-invested">—</div>
+            <div class="stat-sub text-muted" id="total-contributions">— contributions</div>
           </div>
           <div class="stat-card">
-            <div class="stat-label">Profit / Loss</div>
+            <div class="stat-label">Current Value</div>
+            <div class="stat-value" id="portfolio-zar">—</div>
+            <div class="stat-sub text-muted"><span id="total-btc">—</span> BTC</div>
+          </div>
+          <div class="stat-card stat-card-pnl" id="pnl-card">
+            <div class="stat-label">Unrealised P&L</div>
             <div class="stat-value" id="pnl">—</div>
             <div class="stat-change" id="pnl-pct">—</div>
           </div>
-        </div>
-
-        <!-- Augusta Progress -->
-        <div class="card">
-          <div class="card-title">Augusta 2036 Progress</div>
-          <div class="progress-track">
-            <div class="progress-fill" id="augusta-bar" style="width:0%"></div>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:13px;">
-            <span id="augusta-pct" class="text-amber">0%</span>
-            <span class="text-muted">Target: R1,000,000</span>
-          </div>
-          <div class="text-muted" style="font-size:13px; margin-top:8px;">
-            <span id="days-left">—</span> days remaining
+          <div class="stat-card">
+            <div class="stat-label">Avg Buy Price</div>
+            <div class="stat-value" id="avg-buy-price">—</div>
+            <div class="stat-sub"><span id="avg-vs-current" class="text-muted">—</span></div>
           </div>
         </div>
 
-        <!-- Per-member breakdown -->
-        <div class="card">
-          <div class="card-title">Per Member Share</div>
-          <div style="display:flex; gap:24px;">
-            <div>
-              <div class="stat-label">BTC Share</div>
-              <div class="stat-value" style="font-size:18px;" id="member-btc">—</div>
-            </div>
-            <div>
-              <div class="stat-label">Value (ZAR)</div>
-              <div class="stat-value" style="font-size:18px;" id="member-zar">—</div>
-            </div>
+        <!-- Second Row -->
+        <div class="stats-grid stats-grid-3">
+          <div class="stat-card">
+            <div class="stat-label">Per Member Share</div>
+            <div class="stat-value" style="font-size:20px;" id="member-btc">—</div>
+            <div class="stat-sub text-muted" id="member-zar">—</div>
           </div>
+          <div class="stat-card">
+            <div class="stat-label">BTC Price</div>
+            <div class="stat-value" style="font-size:20px;" id="dash-btc-price">—</div>
+            <div class="stat-change" id="dash-btc-change">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Fund Age</div>
+            <div class="stat-value" style="font-size:20px;" id="fund-age">—</div>
+            <div class="stat-sub text-muted" id="purchase-count">— purchases</div>
+          </div>
+        </div>
+
+        <!-- ── Market Intelligence ── -->
+        <div class="kpi-section-header">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg>
+          Market Intelligence
+        </div>
+        <div class="stats-grid stats-grid-5">
+          <div class="stat-card">
+            <div class="stat-label">BTC Dominance</div>
+            <div class="stat-value" id="kpi-dominance-val">—</div>
+            <div class="stat-sub text-muted">market share</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Fear & Greed</div>
+            <div class="stat-value" id="kpi-fg-val">—</div>
+            <div class="stat-sub text-muted" id="kpi-fg-label">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">BTC vs ATH</div>
+            <div class="stat-value" id="kpi-ath-val">—</div>
+            <div class="stat-sub text-muted" id="kpi-ath-sub">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">ZAR / USD</div>
+            <div class="stat-value text-amber" id="kpi-zar-usd-val">—</div>
+            <div class="stat-sub text-muted">exchange rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">ZAR / EUR</div>
+            <div class="stat-value text-amber" id="kpi-zar-eur-val">—</div>
+            <div class="stat-sub text-muted">trip currency</div>
+          </div>
+        </div>
+
+        <!-- Fear & Greed Gauge + BTC Dominance -->
+        <div class="stats-grid stats-grid-2">
+          <div class="card">
+            <div class="card-header"><div class="card-title">Fear &amp; Greed Index</div></div>
+            <canvas id="fear-greed-gauge" width="300" height="180" style="width:100%;height:180px;"></canvas>
+          </div>
+          <div class="card">
+            <div class="card-header"><div class="card-title">BTC Dominance</div></div>
+            <canvas id="dominance-chart" width="300" height="180" style="width:100%;height:180px;"></canvas>
+          </div>
+        </div>
+
+        <!-- ── Alt Coins Snapshot ── -->
+        <div class="stats-grid stats-grid-5" id="kpi-altcoins-row">
+          <div class="stat-card">
+            <div class="stat-label">ETH 24h</div>
+            <div class="stat-value" id="kpi-alt-eth">—</div>
+            <div class="stat-sub text-muted" id="kpi-alt-eth-price">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">SOL 24h</div>
+            <div class="stat-value" id="kpi-alt-sol">—</div>
+            <div class="stat-sub text-muted" id="kpi-alt-sol-price">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">XRP 24h</div>
+            <div class="stat-value" id="kpi-alt-xrp">—</div>
+            <div class="stat-sub text-muted" id="kpi-alt-xrp-price">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">ADA 24h</div>
+            <div class="stat-value" id="kpi-alt-ada">—</div>
+            <div class="stat-sub text-muted" id="kpi-alt-ada-price">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">DOT 24h</div>
+            <div class="stat-value" id="kpi-alt-dot">—</div>
+            <div class="stat-sub text-muted" id="kpi-alt-dot-price">—</div>
+          </div>
+        </div>
+
+        <!-- ── Fund Performance ── -->
+        <div class="kpi-section-header">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></svg>
+          Fund Performance
+        </div>
+        <div class="stats-grid stats-grid-5">
+          <div class="stat-card">
+            <div class="stat-label">Avg Monthly Contrib</div>
+            <div class="stat-value text-amber" id="kpi-avg-monthly">—</div>
+            <div class="stat-sub text-muted">per member</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Largest Purchase</div>
+            <div class="stat-value text-amber" id="kpi-largest-buy">—</div>
+            <div class="stat-sub text-muted" id="kpi-largest-buy-btc">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Best Month</div>
+            <div class="stat-value text-green" id="kpi-best-month">—</div>
+            <div class="stat-sub text-muted" id="kpi-best-month-label">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Worst Month</div>
+            <div class="stat-value text-red" id="kpi-worst-month">—</div>
+            <div class="stat-sub text-muted" id="kpi-worst-month-label">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Next DCA</div>
+            <div class="stat-value" id="kpi-dca-val">—</div>
+            <div class="stat-sub text-muted">days until 15th</div>
+          </div>
+        </div>
+
+        <!-- ── Trip Planning ── -->
+        <div class="kpi-section-header">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+          Trip Planning
+        </div>
+        <div class="stats-grid stats-grid-5">
+          <div class="stat-card">
+            <div class="stat-label">Trip Countdown</div>
+            <div class="stat-value text-amber" id="kpi-countdown-val">—</div>
+            <div class="stat-sub text-muted">days to Ryder Cup</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Est. Trip Cost / Person</div>
+            <div class="stat-value text-amber" id="kpi-trip-pp">—</div>
+            <div class="stat-sub text-muted">all-in estimate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Funding Gap</div>
+            <div class="stat-value" id="kpi-funding-gap">—</div>
+            <div class="stat-sub text-muted" id="kpi-funding-gap-sub">still needed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Monthly Savings Needed</div>
+            <div class="stat-value text-amber" id="kpi-monthly-save">—</div>
+            <div class="stat-sub text-muted">to hit target</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">EUR Spending Power</div>
+            <div class="stat-value" id="kpi-eur-power">—</div>
+            <div class="stat-sub text-muted">fund value in EUR</div>
+          </div>
+        </div>
+        <div class="stats-grid stats-grid-5">
+          <div class="stat-card">
+            <div class="stat-label">Flight Est.</div>
+            <div class="stat-value text-amber" id="kpi-flights-val">—</div>
+            <div class="stat-sub text-muted">per person CPT→BCN</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Accom Est.</div>
+            <div class="stat-value text-amber" id="kpi-accom-val">—</div>
+            <div class="stat-sub text-muted">per person / night</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Budget Allocated</div>
+            <div class="stat-value" id="kpi-budget-val">—</div>
+            <div class="stat-sub text-muted" id="kpi-budget-sub">of total estimate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Ryder Cup 2031</div>
+            <div class="stat-value" id="kpi-ryder-info">Sep 26–28</div>
+            <div class="stat-sub text-muted">Camiral, Girona, Spain</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Group Size</div>
+            <div class="stat-value" id="kpi-group-size">—</div>
+            <div class="stat-sub text-muted">active members</div>
+          </div>
+        </div>
+
+        <!-- BTC Price Chart -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">BTC/ZAR — 30 Day</div>
+          </div>
+          <canvas id="price-chart" width="800" height="200" style="width:100%;height:200px;"></canvas>
         </div>
       </section>
 
       <!-- Members View -->
       <section id="view-members" class="hidden">
-        <h2 style="font-size:20px; margin-bottom:24px;">Members</h2>
-        <div class="card" id="members-list"></div>
+        <div class="view-header">
+          <h2>Members</h2>
+          <div class="view-header-meta">
+            <span id="members-active-count" class="badge badge-green">—</span>
+            <span class="text-muted">active</span>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:24px;">
+          <div class="card-header"><div class="card-title">Contribution Share</div></div>
+          <canvas id="members-pie-chart" width="400" height="250" style="width:100%;height:250px;"></canvas>
+        </div>
+        <div class="members-grid" id="members-list"></div>
       </section>
 
       <!-- Purchases View -->
       <section id="view-purchases" class="hidden">
-        <h2 style="font-size:20px; margin-bottom:24px;">BTC Purchases</h2>
+        <div class="view-header">
+          <h2>BTC Purchases &amp; Withdrawals</h2>
+          <div class="view-header-meta">
+            <span id="purchases-total" class="text-amber">—</span>
+            <span class="text-muted">total BTC acquired</span>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:24px;">
+          <div class="card-header"><div class="card-title">DCA Cost Average vs Current Price</div></div>
+          <canvas id="dca-chart" width="800" height="200" style="width:100%;height:200px;"></canvas>
+        </div>
         <div class="card table-wrap" id="purchases-table"></div>
       </section>
 
       <!-- Contributions View -->
+
       <section id="view-contributions" class="hidden">
-        <h2 style="font-size:20px; margin-bottom:24px;">Contributions</h2>
+        <div class="view-header">
+          <h2>Contributions</h2>
+          <div class="view-header-meta" id="contrib-meta"></div>
+        </div>
+        <div class="card" style="margin-bottom:24px;">
+          <div class="card-header"><div class="card-title">Monthly Contribution Totals</div></div>
+          <canvas id="contrib-bar-chart" width="800" height="200" style="width:100%;height:200px;"></canvas>
+        </div>
+        <div class="contrib-filters" id="contrib-filters"></div>
         <div class="card table-wrap" id="contributions-table"></div>
+      </section>
+
+      <!-- Alt Coins View -->
+      <section id="view-altcoins" class="hidden">
+        <div class="view-header"><h2>Alt Coins</h2><div class="view-header-meta"><span class="text-muted">Auto-refreshes 60s</span></div></div>
+        <div id="altcoins-list"></div>
+      </section>
+
+      <!-- Forex View -->
+      <section id="view-forex" class="hidden">
+        <div class="view-header"><h2>Forex Rates</h2><div class="view-header-meta"><span class="text-muted">ZAR exchange rates</span></div></div>
+        <div id="forex-content"></div>
+      </section>
+
+      <!-- Crypto News View -->
+      <section id="view-cryptonews" class="hidden">
+        <div class="view-header"><h2>Crypto News</h2></div>
+        <div id="cryptonews-content"></div>
+      </section>
+
+      <!-- Rugby View -->
+      <section id="view-rugby" class="hidden">
+        <div class="view-header"><h2>Rugby News</h2></div>
+        <div id="rugby-content"></div>
+      </section>
+
+      <!-- Cricket View -->
+      <section id="view-cricket" class="hidden">
+        <div class="view-header"><h2>Cricket News</h2></div>
+        <div id="cricket-content"></div>
+      </section>
+
+      <!-- Golf View -->
+      <section id="view-golf" class="hidden">
+        <div class="view-hero" style="background:linear-gradient(135deg,rgba(11,26,50,0.82),rgba(15,29,50,0.88)),url('/images/camiral-hole5.jpg');background-size:cover;background-position:center;border-radius:var(--radius-lg);padding:32px;margin-bottom:24px;color:var(--text-primary);">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:6px;">Ryder Cup 2031</div>
+          <h2 style="font-size:22px;font-weight:700;color:var(--amber);margin:0;border:none;padding:0;text-transform:none;letter-spacing:0;">Golf News</h2>
+          <p style="color:var(--text-secondary);font-size:14px;margin-top:4px;">Latest headlines from the PGA & European Tour</p>
+        </div>
+        <div id="golf-content"></div>
+      </section>
+
+      <!-- Soccer View -->
+      <section id="view-soccer" class="hidden">
+        <div class="view-header"><h2>Soccer News</h2></div>
+        <div id="soccer-content"></div>
+      </section>
+
+      <!-- Tennis View -->
+      <section id="view-tennis" class="hidden">
+        <div class="view-header"><h2>Tennis News</h2></div>
+        <div id="tennis-content"></div>
+      </section>
+
+      <!-- F1 News View -->
+      <section id="view-f1news" class="hidden">
+        <div class="view-header"><h2>F1 News</h2></div>
+        <div id="f1news-content"></div>
+      </section>
+
+      <!-- World News View -->
+      <section id="view-worldnews" class="hidden">
+        <div class="view-header"><h2>World News</h2></div>
+        <div id="worldnews-content"></div>
+      </section>
+
+      <!-- SA News View -->
+      <section id="view-sanews" class="hidden">
+        <div class="view-header"><h2>South Africa News</h2></div>
+        <div id="sanews-content"></div>
+      </section>
+
+      <!-- Business News View -->
+      <section id="view-businessnews" class="hidden">
+        <div class="view-header"><h2>Business News</h2></div>
+        <div id="businessnews-content"></div>
+      </section>
+
+      <!-- Tech News View -->
+      <section id="view-technews" class="hidden">
+        <div class="view-header"><h2>Technology News</h2></div>
+        <div id="technews-content"></div>
+      </section>
+
+      <!-- Trip Planner View -->
+      <section id="view-tripplanner" class="hidden">
+        <div class="view-header"><h2>Trip Planner</h2><div class="view-header-meta"><span class="text-muted">Ryder Cup 2031</span></div></div>
+        <div id="tripplanner-content"></div>
+      </section>
+
+      <!-- Flights View -->
+      <section id="view-flights" class="hidden">
+        <div class="view-header"><h2>Flights</h2><div class="view-header-meta"><span class="text-muted">CPT → Barcelona</span></div></div>
+        <div id="flights-content"></div>
+      </section>
+
+      <!-- Accommodation View -->
+      <section id="view-accommodation" class="hidden">
+        <div class="view-hero" style="background:linear-gradient(135deg,rgba(11,26,50,0.82),rgba(15,29,50,0.88)),url('/images/golf-hero-1.jpg');background-size:cover;background-position:center;border-radius:var(--radius-lg);padding:32px;margin-bottom:24px;color:var(--text-primary);">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:6px;">Trip Planning</div>
+          <h2 style="font-size:22px;font-weight:700;color:var(--amber);margin:0;border:none;padding:0;text-transform:none;letter-spacing:0;">Accommodation</h2>
+          <p style="color:var(--text-secondary);font-size:14px;margin-top:4px;">Caldes de Malavella, Girona &amp; Barcelona area</p>
+        </div>
+        <div id="accommodation-content"></div>
+      </section>
+
+      <!-- Budget View -->
+      <section id="view-budget" class="hidden">
+        <div class="view-header"><h2>Trip Budget</h2><div class="view-header-meta"><span class="text-muted">Full breakdown</span></div></div>
+        <div id="budget-content"></div>
+      </section>
+
+      <!-- Treasurer View -->
+      <section id="view-treasurer" class="hidden">
+        <div class="view-header"><h2>Treasurer</h2><div class="view-header-meta"><span class="text-muted">Admin Portal</span></div></div>
+        <div id="treasurer-content"></div>
       </section>
     </main>
   </div>
 
-  <script type="module" src="/js/app.js"></script>
+  <!-- Mobile Bottom Nav -->
+  <nav class="bottom-nav" id="bottom-nav">
+    <button class="bottom-nav-item active" data-view="dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" /></svg>
+      <span>Dashboard</span>
+    </button>
+    <button class="bottom-nav-item" data-view="members">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg>
+      <span>Members</span>
+    </button>
+    <button class="bottom-nav-item" data-view="altcoins">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></svg>
+      <span>Markets</span>
+    </button>
+    <button class="bottom-nav-item" data-view="cryptonews">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" /></svg>
+      <span>News</span>
+    </button>
+    <button class="bottom-nav-item" data-view="tripplanner">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+      <span>Trip</span>
+    </button>
+  </nav>
+
+  <script type="module" src="/js/main.js"></script>
 </body>
 </html>

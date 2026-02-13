@@ -1,0 +1,23 @@
+{
+  "tripName": "Ryder Cup 2031 — Camiral, Spain",
+  "tournamentDates": { "start": "2031-09-26", "end": "2031-09-28" },
+  "travelDates": { "depart": "2031-09-23", "return": "2031-09-30" },
+  "bookingDeadlines": {
+    "flights": "2031-03-01",
+    "accommodation": "2031-04-01",
+    "tickets": "2031-06-01",
+    "travelInsurance": "2031-08-01"
+  },
+  "venue": "Camiral Golf & Wellness (Stadium Course), Caldes de Malavella, Girona, Spain",
+  "nearestAirport": "Barcelona–El Prat (BCN) — ~75 min drive to venue",
+  "members": [
+    { "name": "Salad", "passport": false, "visa": false, "insurance": false, "tickets": false },
+    { "name": "Just", "passport": false, "visa": false, "insurance": false, "tickets": false },
+    { "name": "Jan", "passport": false, "visa": false, "insurance": false, "tickets": false },
+    { "name": "Ox", "passport": false, "visa": false, "insurance": false, "tickets": false },
+    { "name": "Flanners", "passport": false, "visa": false, "insurance": false, "tickets": false },
+    { "name": "Jerry", "passport": false, "visa": false, "insurance": false, "tickets": false },
+    { "name": "Mearp", "passport": false, "visa": false, "insurance": false, "tickets": false }
+  ],
+  "notes": "Camiral Golf & Wellness (formerly PGA Catalunya) hosted the 2023 Solheim Cup. Stadium Course is the championship layout. SA passport holders need Schengen visa — apply at least 3 months before travel. Girona airport (GRO) is closer but has fewer international routes."
+}

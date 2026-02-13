@@ -1,0 +1,78 @@
+{
+  "totalBudgetZar": 1000000,
+  "currency": "ZAR",
+  "members": 7,
+  "categories": [
+    {
+      "name": "Flights (CPT → Barcelona/Girona return)",
+      "estimatePerPerson": 22000,
+      "total": 154000,
+      "allocated": 0,
+      "notes": "1-stop economy via Dubai/Istanbul/Amsterdam. Sep shoulder season. Based on current R18-25K + inflation to 2031."
+    },
+    {
+      "name": "Ryder Cup Tickets (Weekly Pass)",
+      "estimatePerPerson": 12000,
+      "total": 84000,
+      "allocated": 0,
+      "notes": "Weekly general admission ~€500-600. Based on 2023 Rome €300-450 + inflation. EUR/ZAR ~20."
+    },
+    {
+      "name": "Accommodation (6 nights, shared villa)",
+      "estimatePerPerson": 10000,
+      "total": 70000,
+      "allocated": 0,
+      "notes": "Airbnb villa near Caldes de Malavella/Girona. €250-350/night split 7 ways = ~€40-50pp/night × 6 nights."
+    },
+    {
+      "name": "Car Hire (2 vehicles, 7 days)",
+      "estimatePerPerson": 4000,
+      "total": 28000,
+      "allocated": 0,
+      "notes": "2× mid-size SUVs from Barcelona airport. ~€60-80/day each × 7 days. Fuel + tolls + parking."
+    },
+    {
+      "name": "Food & Drinks",
+      "estimatePerPerson": 12000,
+      "total": 84000,
+      "allocated": 0,
+      "notes": "€80-100pp/day for 7 days. Mix of restaurants, course food, groceries. Spain is reasonable but event pricing inflated."
+    },
+    {
+      "name": "Golf (1 round at Camiral Stadium Course)",
+      "estimatePerPerson": 5000,
+      "total": 35000,
+      "allocated": 0,
+      "notes": "Camiral Stadium Course currently ~€250-350/round. Expect premium pricing around Ryder Cup week."
+    },
+    {
+      "name": "Travel Insurance",
+      "estimatePerPerson": 1500,
+      "total": 10500,
+      "allocated": 0,
+      "notes": "Comprehensive travel + medical for EU. 7-10 day policy from SA."
+    },
+    {
+      "name": "Airport Transfers & Misc Transport",
+      "estimatePerPerson": 1500,
+      "total": 10500,
+      "allocated": 0,
+      "notes": "CPT airport parking/Uber + Barcelona airport shuttle if not covered by car hire."
+    },
+    {
+      "name": "Contingency (10%)",
+      "estimatePerPerson": 7000,
+      "total": 49000,
+      "allocated": 0,
+      "notes": "10% buffer for currency fluctuations, price increases, spontaneous activities."
+    }
+  ],
+  "scenarioModels": [
+    { "label": "Bear (BTC R1.5M)", "btcPriceZar": 1500000 },
+    { "label": "Base Case (BTC R3M)", "btcPriceZar": 3000000 },
+    { "label": "Bull (BTC R5M)", "btcPriceZar": 5000000 },
+    { "label": "Moon (BTC R10M)", "btcPriceZar": 10000000 }
+  ],
+  "fundedFromBtc": 0,
+  "outOfPocket": 0
+}

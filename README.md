@@ -1,4 +1,4 @@
-# 🏌️ ZARgusta
+# 🏌️ ZARyder Cup
 
 **Augusta 2036 Bitcoin Investment Fund Tracker**
 

@@ -1,0 +1,2 @@
+{"timestamp":"2026-02-11T22:49:15.472Z","action":"adjustHoldings","oldHoldings":0.12221791,"newHoldings":0.05,"reason":"Test adjustment"}
+{"timestamp":"2026-02-11T22:49:32.691Z","action":"adjustHoldings","oldHoldings":0.05,"newHoldings":0.11107669,"reason":"Restore original holdings after test"}

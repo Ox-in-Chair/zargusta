@@ -1,7 +1,7 @@
 /** Portfolio calculations */
 import type { BtcPrice, PortfolioSnapshot, FundSummary, FundInfo } from '../shared/types.js';
 
-const TARGET_DATE = new Date('2036-04-01');
+const TARGET_DATE = new Date('2031-09-26');
 
 export function calculatePortfolio(
   summary: FundSummary,
@@ -16,7 +16,16 @@ export function calculatePortfolio(
   const pnlPct = invested > 0 ? (pnl / invested) * 100 : 0;
   const augustaProgress = Math.min(100, (valueZar / fundInfo.targetAmountZar) * 100);
   const daysToTarget = Math.max(0, Math.ceil((TARGET_DATE.getTime() - Date.now()) / 86_400_000));
-  const activeMembers = summary.activeMembers || 1;
+
+  // Per-member breakdown from proportional shares
+  const perMemberBreakdown: Record<string, { btcShare: number; valueZar: number; sharePct: number }> = {};
+  for (const [name, share] of Object.entries(summary.memberShares)) {
+    perMemberBreakdown[name] = {
+      btcShare: share.btcShare,
+      valueZar: Math.round(share.btcShare * price.zar),
+      sharePct: share.sharePct,
+    };
+  }
 
   return {
     totalBtc,
@@ -27,7 +36,6 @@ export function calculatePortfolio(
     profitLossPct: Math.round(pnlPct * 100) / 100,
     augustaProgress: Math.round(augustaProgress * 100) / 100,
     daysToTarget,
-    perMemberShareBtc: totalBtc / activeMembers,
-    perMemberValueZar: Math.round(valueZar / activeMembers),
+    perMemberBreakdown,
   };
 }

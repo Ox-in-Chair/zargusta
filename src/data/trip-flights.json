@@ -1,0 +1,13 @@
+{
+  "estimatedCostPerPerson": 22000,
+  "currency": "ZAR",
+  "route": "CPT → BCN (Cape Town to Barcelona–El Prat)",
+  "preferredAirlines": [
+    "Turkish Airlines (via Istanbul)",
+    "Emirates (via Dubai)",
+    "KLM (via Amsterdam)",
+    "Lufthansa (via Frankfurt)"
+  ],
+  "notes": "BCN is ~75 min drive to Camiral. Girona airport (GRO) is closer (~25 min) but limited international routes. September is shoulder season — book 6+ months early for best rates. Current economy return CPT→BCN: R18-25K.",
+  "bookings": []
+}

@@ -1,8 +1,8 @@
 /** Data manager — JSON file persistence (migrated from Python DataManager) */
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Member, Contribution, BtcPurchase, FundInfo, FundSummary } from '../shared/types.js';
+import type { Member, Contribution, BtcPurchase, FundInfo, FundSummary, MemberShare } from '../shared/types.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, '..', '..', 'src', 'data');
@@ -82,6 +82,10 @@ export class DataManager {
     return this.getMembers().filter(m => m.status === 'active');
   }
 
+  getMemberById(id: number): Member | undefined {
+    return this.getMembers().find(m => m.id === id);
+  }
+
   getContributions(): Contribution[] {
     return this.raw.contributions.map(c => ({
       date: c.date,
@@ -135,6 +139,7 @@ export class DataManager {
     };
     this.raw.contributions.push(entry);
     this.persist();
+    this.auditLog('addContribution', { memberId, memberName, amountZar });
     return { date: entry.date, memberId, memberName, amountZar, type: 'contribution' };
   }
 
@@ -155,9 +160,39 @@ export class DataManager {
     this.raw.fund_info.current_btc_holdings = entry.total_holdings;
     this.raw.fund_info.last_purchase_date = entry.date;
     this.persist();
+    this.auditLog('addPurchase', { btcBought, priceZar, amountInvested, notes });
     return {
       date: entry.date, btcBought, totalHoldings: entry.total_holdings,
       priceZar, amountInvested, notes, recordedAt: entry.recorded_at,
+    };
+  }
+
+  updateMember(id: number, patch: { status?: 'active' | 'left'; leaveDate?: string }): Member | null {
+    const raw = this.raw.members.find(m => m.id === id);
+    if (!raw) return null;
+    if (patch.status !== undefined) raw.status = patch.status;
+    if (patch.leaveDate !== undefined) raw.leave_date = patch.leaveDate;
+    this.persist();
+    this.auditLog('updateMember', { id, patch });
+    return this.getMemberById(id) ?? null;
+  }
+
+  addMember(name: string, role: string, joinedDate: string): Member {
+    const maxId = this.raw.members.reduce((mx, m) => Math.max(mx, m.id), 0);
+    const raw = {
+      id: maxId + 1,
+      name,
+      joined_date: joinedDate,
+      leave_date: null,
+      status: 'active',
+      role,
+    };
+    this.raw.members.push(raw);
+    this.persist();
+    this.auditLog('addMember', { name, role, joinedDate, id: raw.id });
+    return {
+      id: raw.id, name, joinedDate, leaveDate: null,
+      status: 'active', role: role as Member['role'],
     };
   }
 
@@ -168,9 +203,29 @@ export class DataManager {
     for (const c of this.raw.contributions) {
       memberContribs[c.member_name] = (memberContribs[c.member_name] ?? 0) + c.amount_zar;
     }
+    // Credit buyouts: buyer absorbs seller's contributions, seller goes to 0
+    const buyouts = (this.raw.fund_info as Record<string, unknown>).buyouts as Array<{ buyer: string; seller: string; amount_zar: number }> | undefined;
+    if (buyouts) {
+      for (const b of buyouts) {
+        memberContribs[b.buyer] = (memberContribs[b.buyer] ?? 0) + b.amount_zar;
+        memberContribs[b.seller] = 0;
+      }
+    }
     const totalZar = Object.values(memberContribs).reduce((a, b) => a + b, 0);
-    const activeCount = this.raw.members.filter(m => m.status === 'active').length;
+    const activeMembers = this.raw.members.filter(m => m.status === 'active');
+    const activeCount = activeMembers.length;
     const holdings = this.raw.fund_info.current_btc_holdings ?? 0;
+
+    // Equal share calculation — all active members get the same slice
+    // Ox mandate 2026-02-13: "Every member has equal share. The past is the past."
+    const equalSharePct = activeCount > 0 ? 100 / activeCount : 0;
+    const equalBtcShare = activeCount > 0 ? holdings / activeCount : 0;
+
+    const memberShares: Record<string, MemberShare> = {};
+    for (const m of activeMembers) {
+      const contributed = memberContribs[m.name] ?? 0;
+      memberShares[m.name] = { contributedZar: contributed, sharePct: equalSharePct, btcShare: equalBtcShare };
+    }
 
     return {
       totalContributionsZar: totalZar,
@@ -180,20 +235,46 @@ export class DataManager {
       activeMembers: activeCount,
       totalMembersAllTime: this.raw.members.length,
       memberContributions: memberContribs,
-      currentSharePerMember: activeCount > 0 ? holdings / activeCount : 0,
+      memberShares,
       dataUpdated: new Date().toISOString(),
       lastBtcPurchase: this.raw.fund_info.last_purchase_date ?? '',
-      richNischkWithdrawal: {
-        date: '2024-08-31',
-        btcAmount: 0.01323,
-        reason: 'Member exit — took proportional share',
-      },
+      memberTransitions: this.raw.fund_info.member_transitions ?? {},
     };
+  }
+
+  adjustHoldings(newHoldings: number, reason: string): { previous: number; current: number; reason: string } {
+    const previous = this.raw.fund_info.current_btc_holdings;
+    this.raw.fund_info.current_btc_holdings = newHoldings;
+    this.persist();
+    this.auditLog('adjustHoldings', { previous, current: newHoldings, reason });
+    return { previous, current: newHoldings, reason };
+  }
+
+  getAuditLog(limit = 50): Array<Record<string, unknown>> {
+    try {
+      const logPath = join(this.dataDir, 'audit-log.jsonl');
+      if (!existsSync(logPath)) return [];
+      const lines = readFileSync(logPath, 'utf-8').trim().split('\n').filter(Boolean);
+      return lines.slice(-limit).reverse().map(line => {
+        try { return JSON.parse(line); } catch { return { raw: line }; }
+      });
+    } catch {
+      return [];
+    }
   }
 
   private persist(): void {
     writeJson(this.historicalPath, this.raw);
     this.summary = this.buildSummary();
     writeJson(this.summaryPath, this.summary);
+  }
+
+  private auditLog(action: string, detail: Record<string, unknown>): void {
+    const entry = { timestamp: new Date().toISOString(), action, ...detail };
+    try {
+      appendFileSync(join(this.dataDir, 'audit-log.jsonl'), JSON.stringify(entry) + '\n');
+    } catch {
+      // Non-critical — don't crash on audit log failure
+    }
   }
 }

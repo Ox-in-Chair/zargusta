@@ -1,0 +1,60 @@
+{
+  "estimatedCostPerPersonPerNight": 1500,
+  "currency": "ZAR",
+  "nights": 7,
+  "checkIn": "2031-09-23",
+  "checkOut": "2031-09-30",
+  "searchLinks": {
+    "booking": "https://www.booking.com/searchresults.html?ss=Caldes+de+Malavella%2C+Girona&checkin=2031-09-23&checkout=2031-09-30&group_adults=7&no_rooms=3&nflt=price%3DZAR-min-5000-1",
+    "airbnb": "https://www.airbnb.com/s/Caldes-de-Malavella--Girona--Spain/homes?adults=7&checkin=2031-09-23&checkout=2031-09-30&place_id=ChIJp2xhBQindkMRoJ0w4QSCAQM",
+    "vrbo": "https://www.vrbo.com/search?destination=Caldes+de+Malavella%2C+Girona%2C+Spain&startDate=2031-09-23&endDate=2031-09-30&adults=7"
+  },
+  "options": [
+    {
+      "name": "Camiral Hotel (on-site)",
+      "type": "hotel",
+      "costPerNightZar": 7000,
+      "link": "https://www.camiral.com/en/hotel/",
+      "notes": "On-site at Camiral Golf & Wellness. Walking distance to Stadium Course. Premium — expect R7K+/night per room during Ryder Cup week.",
+      "pros": "Zero commute, golf on doorstep, spa",
+      "cons": "Most expensive option, will book out fast"
+    },
+    {
+      "name": "Villa — Caldes de Malavella",
+      "type": "villa",
+      "costPerNightZar": 3500,
+      "link": "https://www.airbnb.com/s/Caldes-de-Malavella--Girona--Spain/homes?adults=7&checkin=2031-09-23&checkout=2031-09-30&room_types%5B%5D=Entire%20home%2Fapt&min_bedrooms=4",
+      "notes": "Shared villa for 7, 10-15 min drive to course. Thermal baths nearby. ~€250-350/night total split 7 ways.",
+      "pros": "Best value, kitchen, pool likely, group vibe",
+      "cons": "Need car hire, less walking-distance convenience"
+    },
+    {
+      "name": "Hotel Balneari Vichy Catalan",
+      "type": "hotel",
+      "costPerNightZar": 3000,
+      "link": "https://www.booking.com/hotel/es/balneari-vichy-catalan.html",
+      "notes": "4-star thermal spa hotel in Caldes de Malavella. 10 min from course. Historic building.",
+      "pros": "Thermal spa included, close to venue, good mid-range",
+      "cons": "May book out for Ryder Cup, limited rooms"
+    },
+    {
+      "name": "Hotel in Girona Old Town",
+      "type": "hotel",
+      "costPerNightZar": 2500,
+      "link": "https://www.booking.com/searchresults.html?ss=Girona+Old+Town&checkin=2031-09-23&checkout=2031-09-30&group_adults=7&no_rooms=3",
+      "notes": "Girona old town. Great restaurants and bars. ~25 min drive to course.",
+      "pros": "Best nightlife, restaurants, culture, cheaper",
+      "cons": "25 min commute each way, parking"
+    },
+    {
+      "name": "Barcelona + Day Trips",
+      "type": "hotel",
+      "costPerNightZar": 2000,
+      "link": "https://www.booking.com/searchresults.html?ss=Barcelona&checkin=2031-09-23&checkout=2031-09-30&group_adults=7&no_rooms=3",
+      "notes": "Stay in Barcelona, ~75 min drive/train. Better for pre/post-event days.",
+      "pros": "Cheapest hotels, massive nightlife, beaches",
+      "cons": "75 min commute to course, tolls, fuel, exhausting"
+    }
+  ],
+  "bookings": []
+}

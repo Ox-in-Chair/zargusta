@@ -78,241 +78,398 @@
       "date": "2021-11-15",
       "btc_bought": 0.00361734,
       "total_holdings": 0.00361734,
-      "price_zar": 903375.54
+      "price_zar": 903375.54,
+      "notes": "Month 1 DCA",
+      "amount_invested": 3267.82,
+      "recorded_at": "2021-11-15T00:00:00Z"
     },
     {
       "date": "2021-12-04",
       "btc_bought": 0.00136405,
-      "total_holdings": 0.00498138,
-      "price_zar": 736189.52
+      "total_holdings": 0.00498139,
+      "price_zar": 736189.52,
+      "notes": "Month 2 DCA",
+      "amount_invested": 1004.2,
+      "recorded_at": "2021-12-04T00:00:00Z"
     },
     {
       "date": "2022-01-05",
       "btc_bought": 0.00209107,
-      "total_holdings": 0.00707245,
-      "price_zar": 590581.7
+      "total_holdings": 0.00707246,
+      "price_zar": 590581.7,
+      "notes": "Month 3 DCA",
+      "amount_invested": 1234.95,
+      "recorded_at": "2022-01-05T00:00:00Z"
     },
     {
       "date": "2022-02-03",
       "btc_bought": 0.00272717,
-      "total_holdings": 0.00979962,
-      "price_zar": 661996.82
+      "total_holdings": 0.00979963,
+      "price_zar": 661996.82,
+      "notes": "Month 4 DCA",
+      "amount_invested": 1805.38,
+      "recorded_at": "2022-02-03T00:00:00Z"
     },
     {
       "date": "2022-03-02",
       "btc_bought": 0.00228075,
-      "total_holdings": 0.01208037,
-      "price_zar": 664404.5
+      "total_holdings": 0.01208038,
+      "price_zar": 664404.5,
+      "notes": "Month 5 DCA",
+      "amount_invested": 1515.34,
+      "recorded_at": "2022-03-02T00:00:00Z"
     },
     {
       "date": "2022-04-04",
       "btc_bought": 0.002354,
-      "total_holdings": 0.01443437,
-      "price_zar": 582678.85
+      "total_holdings": 0.01443438,
+      "price_zar": 582678.85,
+      "notes": "Month 6 DCA",
+      "amount_invested": 1371.63,
+      "recorded_at": "2022-04-04T00:00:00Z"
     },
     {
       "date": "2022-05-05",
       "btc_bought": 0.00262582,
-      "total_holdings": 0.01739528,
-      "price_zar": 495513.8
+      "total_holdings": 0.0170602,
+      "price_zar": 495513.8,
+      "notes": "Month 7 DCA",
+      "amount_invested": 1301.13,
+      "recorded_at": "2022-05-05T00:00:00Z"
     },
     {
       "date": "2022-06-03",
       "btc_bought": 0.00338308,
-      "total_holdings": 0.02078092,
-      "price_zar": 323702.83
+      "total_holdings": 0.02044328,
+      "price_zar": 323702.83,
+      "notes": "Month 8 DCA",
+      "amount_invested": 1095.11,
+      "recorded_at": "2022-06-03T00:00:00Z"
     },
     {
       "date": "2022-07-05",
       "btc_bought": 0.00481237,
-      "total_holdings": 0.02559329,
-      "price_zar": 387041.23
+      "total_holdings": 0.02525565,
+      "price_zar": 387041.23,
+      "notes": "Month 9 DCA",
+      "amount_invested": 1862.59,
+      "recorded_at": "2022-07-05T00:00:00Z"
     },
     {
       "date": "2022-08-05",
       "btc_bought": 0.00406258,
-      "total_holdings": 0.02965587,
-      "price_zar": 342948.86
+      "total_holdings": 0.02931823,
+      "price_zar": 342948.86,
+      "notes": "Month 10 DCA",
+      "amount_invested": 1393.26,
+      "recorded_at": "2022-08-05T00:00:00Z"
     },
     {
       "date": "2022-09-09",
       "btc_bought": 0.00443611,
-      "total_holdings": 0.03409867,
-      "price_zar": 351079.66
+      "total_holdings": 0.03375434,
+      "price_zar": 351079.66,
+      "notes": "Month 11 DCA",
+      "amount_invested": 1557.43,
+      "recorded_at": "2022-09-09T00:00:00Z"
     },
     {
       "date": "2022-10-10",
       "btc_bought": 0.00446955,
-      "total_holdings": 0.03857495,
-      "price_zar": 375061.86
+      "total_holdings": 0.03822389,
+      "price_zar": 375061.86,
+      "notes": "Month 12 DCA",
+      "amount_invested": 1676.36,
+      "recorded_at": "2022-10-10T00:00:00Z"
     },
     {
       "date": "2022-11-02",
       "btc_bought": 0.00424943,
-      "total_holdings": 0.04282438,
-      "price_zar": 293653.27
+      "total_holdings": 0.04247332,
+      "price_zar": 293653.27,
+      "notes": "Month 13 DCA",
+      "amount_invested": 1247.86,
+      "recorded_at": "2022-11-02T00:00:00Z"
     },
     {
       "date": "2022-12-07",
       "btc_bought": 0.0053874,
-      "total_holdings": 0.04821907,
-      "price_zar": 281127.15
+      "total_holdings": 0.04786072,
+      "price_zar": 281127.15,
+      "notes": "Month 14 DCA",
+      "amount_invested": 1514.54,
+      "recorded_at": "2022-12-07T00:00:00Z"
     },
     {
       "date": "2023-01-11",
       "btc_bought": 0.00527394,
-      "total_holdings": 0.05349302,
-      "price_zar": 402709.49
+      "total_holdings": 0.05313466,
+      "price_zar": 402709.49,
+      "notes": "Month 15 DCA",
+      "amount_invested": 2123.87,
+      "recorded_at": "2023-01-11T00:00:00Z"
     },
     {
       "date": "2023-03-10",
       "btc_bought": 0.0084798,
-      "total_holdings": 0.06197678,
-      "price_zar": 506241.02
+      "total_holdings": 0.06161446,
+      "price_zar": 506241.02,
+      "notes": "Double buy-in",
+      "amount_invested": 4292.82,
+      "recorded_at": "2023-03-10T00:00:00Z"
     },
     {
       "date": "2023-06-06",
       "btc_bought": 0.00939691,
-      "total_holdings": 0.07138009,
-      "price_zar": 573356.47
+      "total_holdings": 0.07101137,
+      "price_zar": 573356.47,
+      "notes": "Triple buy-in",
+      "amount_invested": 5387.78,
+      "recorded_at": "2023-06-06T00:00:00Z"
     },
     {
       "date": "2023-08-17",
       "btc_bought": 0.00578617,
-      "total_holdings": 0.07717337,
-      "price_zar": 488403.62
+      "total_holdings": 0.07679754,
+      "price_zar": 488403.62,
+      "notes": "Double buy-in",
+      "amount_invested": 2825.99,
+      "recorded_at": "2023-08-17T00:00:00Z"
     },
     {
       "date": "2023-09-12",
       "btc_bought": 0.00312554,
-      "total_holdings": 0.08030328,
-      "price_zar": 509931.52
+      "total_holdings": 0.07992308,
+      "price_zar": 509931.52,
+      "notes": "DCA",
+      "amount_invested": 1593.81,
+      "recorded_at": "2023-09-12T00:00:00Z"
     },
     {
       "date": "2023-12-13",
       "btc_bought": 0.00606528,
-      "total_holdings": 0.08637093,
-      "price_zar": 772646.41
+      "total_holdings": 0.08598836,
+      "price_zar": 772646.41,
+      "notes": "DCA",
+      "amount_invested": 4686.32,
+      "recorded_at": "2023-12-13T00:00:00Z"
     },
     {
       "date": "2024-01-19",
       "btc_bought": 0.001987,
-      "total_holdings": 0.08836329,
-      "price_zar": 792604.82
+      "total_holdings": 0.08797536,
+      "price_zar": 792604.82,
+      "notes": "DCA",
+      "amount_invested": 1574.91,
+      "recorded_at": "2024-01-19T00:00:00Z"
     },
     {
       "date": "2024-02-15",
       "btc_bought": 0.00291496,
-      "total_holdings": 0.09127825,
-      "price_zar": 1181128.42
+      "total_holdings": 0.09089032,
+      "price_zar": 1181128.42,
+      "notes": "DCA",
+      "amount_invested": 3442.94,
+      "recorded_at": "2024-02-15T00:00:00Z"
     },
     {
       "date": "2024-03-15",
       "btc_bought": 0.00237698,
-      "total_holdings": 0.09365523,
-      "price_zar": 1344669.95
+      "total_holdings": 0.0932673,
+      "price_zar": 1344669.95,
+      "notes": "DCA",
+      "amount_invested": 3196.25,
+      "recorded_at": "2024-03-15T00:00:00Z"
     },
     {
       "date": "2024-04-15",
       "btc_bought": 0.00252379,
-      "total_holdings": 0.09617902,
-      "price_zar": 1140800.56
+      "total_holdings": 0.09579109,
+      "price_zar": 1140800.56,
+      "notes": "DCA",
+      "amount_invested": 2879.14,
+      "recorded_at": "2024-04-15T00:00:00Z"
     },
     {
       "date": "2024-05-15",
       "btc_bought": 0.00250773,
-      "total_holdings": 0.09868675,
-      "price_zar": 1287787.83
+      "total_holdings": 0.09829882,
+      "price_zar": 1287787.83,
+      "notes": "DCA",
+      "amount_invested": 3229.42,
+      "recorded_at": "2024-05-15T00:00:00Z"
     },
     {
       "date": "2024-06-15",
       "btc_bought": 0.00244615,
-      "total_holdings": 0.1011329,
-      "price_zar": 1097989.24
+      "total_holdings": 0.10074497,
+      "price_zar": 1097989.24,
+      "notes": "DCA",
+      "amount_invested": 2685.85,
+      "recorded_at": "2024-06-15T00:00:00Z"
     },
     {
       "date": "2024-07-15",
       "btc_bought": 0.0026211,
-      "total_holdings": 0.103754,
-      "price_zar": 1202938.47
+      "total_holdings": 0.10336607,
+      "price_zar": 1202938.47,
+      "notes": "DCA",
+      "amount_invested": 3153.02,
+      "recorded_at": "2024-07-15T00:00:00Z"
     },
     {
       "date": "2024-08-15",
       "btc_bought": 0.0028001,
-      "total_holdings": 0.1065541,
-      "price_zar": 1055650.24
+      "total_holdings": 0.10616617,
+      "price_zar": 1055650.24,
+      "notes": "DCA",
+      "amount_invested": 2955.93,
+      "recorded_at": "2024-08-15T00:00:00Z"
     },
     {
       "date": "2024-08-31",
-      "btc_bought": 0.0,
-      "total_holdings": 0.0933241,
+      "btc_bought": -0.01323,
+      "total_holdings": 0.09293617,
       "price_zar": 1055650.24,
-      "type": "withdrawal",
-      "member": "Rich Nischk",
-      "amount_withdrawn": 0.01323
+      "notes": "Rich Nischk withdrawal",
+      "amount_invested": 0,
+      "recorded_at": "2024-08-31T00:00:00Z",
+      "type": "withdrawal"
     },
     {
       "date": "2024-09-30",
       "btc_bought": 0.00240277,
-      "total_holdings": 0.09572687,
-      "price_zar": 1115359.62
+      "total_holdings": 0.09533894,
+      "price_zar": 1115359.62,
+      "notes": "DCA (7 members)",
+      "amount_invested": 2679.95,
+      "recorded_at": "2024-09-30T00:00:00Z"
     },
     {
       "date": "2024-10-15",
       "btc_bought": 0.00231302,
-      "total_holdings": 0.09803989,
-      "price_zar": 1272649.82
+      "total_holdings": 0.09765196,
+      "price_zar": 1272649.82,
+      "notes": "DCA",
+      "amount_invested": 2943.66,
+      "recorded_at": "2024-10-15T00:00:00Z"
     },
     {
       "date": "2024-11-15",
-      "btc_bought": 0.00166362,
+      "btc_bought": 0.00205155,
       "total_holdings": 0.09970351,
-      "price_zar": 1745313.47
+      "price_zar": 1745313.47,
+      "notes": "DCA",
+      "amount_invested": 2903.54,
+      "recorded_at": "2024-11-15T00:00:00Z"
     },
     {
       "date": "2024-12-15",
       "btc_bought": 0.001461,
       "total_holdings": 0.10116451,
-      "price_zar": 1745761.32
+      "price_zar": 1745761.32,
+      "notes": "DCA",
+      "amount_invested": 2550.56,
+      "recorded_at": "2024-12-15T00:00:00Z"
     },
     {
       "date": "2025-01-15",
       "btc_bought": 0.00145274,
       "total_holdings": 0.10261725,
-      "price_zar": 1940377.77
+      "price_zar": 1940377.77,
+      "notes": "DCA",
+      "amount_invested": 2818.86,
+      "recorded_at": "2025-01-15T00:00:00Z"
     },
     {
       "date": "2025-02-15",
       "btc_bought": 0.00147154,
       "total_holdings": 0.10408879,
-      "price_zar": 1501900.01
+      "price_zar": 1501900.01,
+      "notes": "DCA",
+      "amount_invested": 2210.11,
+      "recorded_at": "2025-02-15T00:00:00Z"
     },
     {
       "date": "2025-03-18",
       "btc_bought": 0.00175596,
       "total_holdings": 0.10584475,
-      "price_zar": 1493218.01
+      "price_zar": 1493218.01,
+      "notes": "DCA",
+      "amount_invested": 2622.03,
+      "recorded_at": "2025-03-18T00:00:00Z"
     },
     {
       "date": "2025-05-14",
       "btc_bought": 0.00282588,
       "total_holdings": 0.10867063,
-      "price_zar": 1865003.29
+      "price_zar": 1865003.29,
+      "notes": "DCA",
+      "amount_invested": 5270.28,
+      "recorded_at": "2025-05-14T00:00:00Z"
     },
     {
       "date": "2025-07-21",
       "btc_bought": 0.00264517,
-      "total_holdings": 0.11107669,
-      "price_zar": 1898877.75
+      "total_holdings": 0.1113158,
+      "price_zar": 1898877.75,
+      "notes": "Double buy-in",
+      "amount_invested": 5022.85,
+      "recorded_at": "2025-07-21T00:00:00Z"
     },
     {
-      "date": "2025-08-06",
-      "btc_bought": 1.2e-07,
-      "total_holdings": 5478,
-      "price_zar": 2046957,
-      "amount_invested": 2800,
-      "notes": "",
-      "recorded_at": "2025-08-07T00:40:33.817209"
+      "date": "2025-08-15",
+      "btc_bought": 0.00129876,
+      "total_holdings": 0.11261456,
+      "price_zar": 1927045.27,
+      "notes": "DCA",
+      "amount_invested": 2502.77,
+      "recorded_at": "2025-08-15T00:00:00Z"
+    },
+    {
+      "date": "2025-09-15",
+      "btc_bought": 0.00134938,
+      "total_holdings": 0.11396394,
+      "price_zar": 1976565.17,
+      "notes": "DCA",
+      "amount_invested": 2667.14,
+      "recorded_at": "2025-09-15T00:00:00Z"
+    },
+    {
+      "date": "2025-10-15",
+      "btc_bought": 0.00181847,
+      "total_holdings": 0.11578241,
+      "price_zar": 1869930.06,
+      "notes": "DCA (R500/member)",
+      "amount_invested": 3400.41,
+      "recorded_at": "2025-10-15T00:00:00Z"
+    },
+    {
+      "date": "2025-11-15",
+      "btc_bought": 0.00211234,
+      "total_holdings": 0.11789475,
+      "price_zar": 1555235.67,
+      "notes": "DCA",
+      "amount_invested": 3285.19,
+      "recorded_at": "2025-11-15T00:00:00Z"
+    },
+    {
+      "date": "2025-12-15",
+      "btc_bought": 0.00221767,
+      "total_holdings": 0.12011242,
+      "price_zar": 1462200.16,
+      "notes": "DCA",
+      "amount_invested": 3242.68,
+      "recorded_at": "2025-12-15T00:00:00Z"
+    },
+    {
+      "date": "2026-01-15",
+      "btc_bought": 0.00210549,
+      "total_holdings": 0.12221791,
+      "price_zar": 1068530,
+      "notes": "DCA",
+      "amount_invested": 2249.78,
+      "recorded_at": "2026-01-15T00:00:00Z"
     }
   ],
   "contributions": [
@@ -1697,6 +1854,13 @@
     },
     {
       "date": "2023-10-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 200,
+      "type": "contribution"
+    },
+    {
+      "date": "2023-10-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 200,
@@ -1710,13 +1874,6 @@
       "type": "contribution"
     },
     {
-      "date": "2023-10-01",
-      "member_id": 9,
-      "member_name": "Mearp",
-      "amount_zar": 200,
-      "type": "contribution"
-    },
-    {
       "date": "2023-11-01",
       "member_id": 1,
       "member_name": "Salad",
@@ -1753,6 +1910,13 @@
     },
     {
       "date": "2023-11-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 200,
+      "type": "contribution"
+    },
+    {
+      "date": "2023-11-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 200,
@@ -1766,7 +1930,42 @@
       "type": "contribution"
     },
     {
-      "date": "2023-11-01",
+      "date": "2023-12-01",
+      "member_id": 1,
+      "member_name": "Salad",
+      "amount_zar": 200,
+      "type": "contribution"
+    },
+    {
+      "date": "2023-12-01",
+      "member_id": 2,
+      "member_name": "Just",
+      "amount_zar": 200,
+      "type": "contribution"
+    },
+    {
+      "date": "2023-12-01",
+      "member_id": 3,
+      "member_name": "Jan",
+      "amount_zar": 200,
+      "type": "contribution"
+    },
+    {
+      "date": "2023-12-01",
+      "member_id": 4,
+      "member_name": "Rich Nischk",
+      "amount_zar": 200,
+      "type": "contribution"
+    },
+    {
+      "date": "2023-12-01",
+      "member_id": 5,
+      "member_name": "Ox",
+      "amount_zar": 200,
+      "type": "contribution"
+    },
+    {
+      "date": "2023-12-01",
       "member_id": 9,
       "member_name": "Mearp",
       "amount_zar": 200,
@@ -1774,114 +1973,72 @@
     },
     {
       "date": "2023-12-01",
-      "member_id": 1,
-      "member_name": "Salad",
-      "amount_zar": 300,
-      "type": "contribution"
-    },
-    {
-      "date": "2023-12-01",
-      "member_id": 2,
-      "member_name": "Just",
-      "amount_zar": 300,
-      "type": "contribution"
-    },
-    {
-      "date": "2023-12-01",
-      "member_id": 3,
-      "member_name": "Jan",
-      "amount_zar": 300,
-      "type": "contribution"
-    },
-    {
-      "date": "2023-12-01",
-      "member_id": 4,
-      "member_name": "Rich Nischk",
-      "amount_zar": 300,
-      "type": "contribution"
-    },
-    {
-      "date": "2023-12-01",
-      "member_id": 5,
-      "member_name": "Ox",
-      "amount_zar": 300,
-      "type": "contribution"
-    },
-    {
-      "date": "2023-12-01",
       "member_id": 7,
       "member_name": "Flanners",
-      "amount_zar": 300,
+      "amount_zar": 200,
       "type": "contribution"
     },
     {
       "date": "2023-12-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 300,
-      "type": "contribution"
-    },
-    {
-      "date": "2023-12-01",
-      "member_id": 9,
-      "member_name": "Mearp",
-      "amount_zar": 300,
+      "amount_zar": 200,
       "type": "contribution"
     },
     {
       "date": "2024-01-01",
       "member_id": 1,
       "member_name": "Salad",
-      "amount_zar": 300,
+      "amount_zar": 400,
       "type": "contribution"
     },
     {
       "date": "2024-01-01",
       "member_id": 2,
       "member_name": "Just",
-      "amount_zar": 300,
+      "amount_zar": 400,
       "type": "contribution"
     },
     {
       "date": "2024-01-01",
       "member_id": 3,
       "member_name": "Jan",
-      "amount_zar": 300,
+      "amount_zar": 400,
       "type": "contribution"
     },
     {
       "date": "2024-01-01",
       "member_id": 4,
       "member_name": "Rich Nischk",
-      "amount_zar": 300,
+      "amount_zar": 400,
       "type": "contribution"
     },
     {
       "date": "2024-01-01",
       "member_id": 5,
       "member_name": "Ox",
-      "amount_zar": 300,
-      "type": "contribution"
-    },
-    {
-      "date": "2024-01-01",
-      "member_id": 7,
-      "member_name": "Flanners",
-      "amount_zar": 300,
-      "type": "contribution"
-    },
-    {
-      "date": "2024-01-01",
-      "member_id": 8,
-      "member_name": "Jerry",
-      "amount_zar": 300,
+      "amount_zar": 400,
       "type": "contribution"
     },
     {
       "date": "2024-01-01",
       "member_id": 9,
       "member_name": "Mearp",
-      "amount_zar": 300,
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-01-01",
+      "member_id": 7,
+      "member_name": "Flanners",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-01-01",
+      "member_id": 8,
+      "member_name": "Jerry",
+      "amount_zar": 400,
       "type": "contribution"
     },
     {
@@ -1921,6 +2078,13 @@
     },
     {
       "date": "2024-02-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-02-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -1930,13 +2094,6 @@
       "date": "2024-02-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2024-02-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -1977,6 +2134,13 @@
     },
     {
       "date": "2024-03-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-03-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -1990,13 +2154,6 @@
       "type": "contribution"
     },
     {
-      "date": "2024-03-01",
-      "member_id": 9,
-      "member_name": "Mearp",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
       "date": "2024-04-01",
       "member_id": 1,
       "member_name": "Salad",
@@ -2033,6 +2190,13 @@
     },
     {
       "date": "2024-04-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-04-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2042,13 +2206,6 @@
       "date": "2024-04-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2024-04-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2089,6 +2246,13 @@
     },
     {
       "date": "2024-05-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-05-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2102,13 +2266,6 @@
       "type": "contribution"
     },
     {
-      "date": "2024-05-01",
-      "member_id": 9,
-      "member_name": "Mearp",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
       "date": "2024-06-01",
       "member_id": 1,
       "member_name": "Salad",
@@ -2145,6 +2302,13 @@
     },
     {
       "date": "2024-06-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-06-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2154,13 +2318,6 @@
       "date": "2024-06-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2024-06-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2201,6 +2358,13 @@
     },
     {
       "date": "2024-07-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-07-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2210,13 +2374,6 @@
       "date": "2024-07-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2024-07-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2257,6 +2414,13 @@
     },
     {
       "date": "2024-08-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-08-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2266,13 +2430,6 @@
       "date": "2024-08-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2024-08-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2306,6 +2463,13 @@
     },
     {
       "date": "2024-09-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-09-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2319,13 +2483,6 @@
       "type": "contribution"
     },
     {
-      "date": "2024-09-01",
-      "member_id": 9,
-      "member_name": "Mearp",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
       "date": "2024-10-01",
       "member_id": 1,
       "member_name": "Salad",
@@ -2355,6 +2512,13 @@
     },
     {
       "date": "2024-10-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-10-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2364,13 +2528,6 @@
       "date": "2024-10-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2024-10-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2404,6 +2561,13 @@
     },
     {
       "date": "2024-11-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-11-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2417,13 +2581,6 @@
       "type": "contribution"
     },
     {
-      "date": "2024-11-01",
-      "member_id": 9,
-      "member_name": "Mearp",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
       "date": "2024-12-01",
       "member_id": 1,
       "member_name": "Salad",
@@ -2453,6 +2610,13 @@
     },
     {
       "date": "2024-12-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2024-12-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2462,13 +2626,6 @@
       "date": "2024-12-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2024-12-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2502,6 +2659,13 @@
     },
     {
       "date": "2025-01-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-01-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2515,13 +2679,6 @@
       "type": "contribution"
     },
     {
-      "date": "2025-01-01",
-      "member_id": 9,
-      "member_name": "Mearp",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
       "date": "2025-02-01",
       "member_id": 1,
       "member_name": "Salad",
@@ -2551,6 +2708,13 @@
     },
     {
       "date": "2025-02-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-02-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2560,13 +2724,6 @@
       "date": "2025-02-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2025-02-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2600,6 +2757,13 @@
     },
     {
       "date": "2025-03-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-03-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2613,13 +2777,6 @@
       "type": "contribution"
     },
     {
-      "date": "2025-03-01",
-      "member_id": 9,
-      "member_name": "Mearp",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
       "date": "2025-04-01",
       "member_id": 1,
       "member_name": "Salad",
@@ -2649,6 +2806,13 @@
     },
     {
       "date": "2025-04-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-04-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2658,13 +2822,6 @@
       "date": "2025-04-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2025-04-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2698,6 +2855,13 @@
     },
     {
       "date": "2025-05-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-05-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2707,13 +2871,6 @@
       "date": "2025-05-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2025-05-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2747,6 +2904,13 @@
     },
     {
       "date": "2025-06-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-06-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2756,13 +2920,6 @@
       "date": "2025-06-01",
       "member_id": 8,
       "member_name": "Jerry",
-      "amount_zar": 400,
-      "type": "contribution"
-    },
-    {
-      "date": "2025-06-01",
-      "member_id": 9,
-      "member_name": "Mearp",
       "amount_zar": 400,
       "type": "contribution"
     },
@@ -2796,6 +2953,13 @@
     },
     {
       "date": "2025-07-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-07-01",
       "member_id": 7,
       "member_name": "Flanners",
       "amount_zar": 400,
@@ -2809,27 +2973,323 @@
       "type": "contribution"
     },
     {
-      "date": "2025-07-01",
+      "date": "2025-08-01",
+      "member_id": 1,
+      "member_name": "Salad",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-08-01",
+      "member_id": 2,
+      "member_name": "Just",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-08-01",
+      "member_id": 3,
+      "member_name": "Jan",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-08-01",
+      "member_id": 5,
+      "member_name": "Ox",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-08-01",
       "member_id": 9,
       "member_name": "Mearp",
       "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-08-01",
+      "member_id": 7,
+      "member_name": "Flanners",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-08-01",
+      "member_id": 8,
+      "member_name": "Jerry",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-09-01",
+      "member_id": 1,
+      "member_name": "Salad",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-09-01",
+      "member_id": 2,
+      "member_name": "Just",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-09-01",
+      "member_id": 3,
+      "member_name": "Jan",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-09-01",
+      "member_id": 5,
+      "member_name": "Ox",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-09-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-09-01",
+      "member_id": 7,
+      "member_name": "Flanners",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-09-01",
+      "member_id": 8,
+      "member_name": "Jerry",
+      "amount_zar": 400,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-10-01",
+      "member_id": 1,
+      "member_name": "Salad",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-10-01",
+      "member_id": 2,
+      "member_name": "Just",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-10-01",
+      "member_id": 3,
+      "member_name": "Jan",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-10-01",
+      "member_id": 5,
+      "member_name": "Ox",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-10-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-10-01",
+      "member_id": 7,
+      "member_name": "Flanners",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-10-01",
+      "member_id": 8,
+      "member_name": "Jerry",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-11-01",
+      "member_id": 1,
+      "member_name": "Salad",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-11-01",
+      "member_id": 2,
+      "member_name": "Just",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-11-01",
+      "member_id": 3,
+      "member_name": "Jan",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-11-01",
+      "member_id": 5,
+      "member_name": "Ox",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-11-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-11-01",
+      "member_id": 7,
+      "member_name": "Flanners",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-11-01",
+      "member_id": 8,
+      "member_name": "Jerry",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-12-01",
+      "member_id": 1,
+      "member_name": "Salad",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-12-01",
+      "member_id": 2,
+      "member_name": "Just",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-12-01",
+      "member_id": 3,
+      "member_name": "Jan",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-12-01",
+      "member_id": 5,
+      "member_name": "Ox",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-12-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-12-01",
+      "member_id": 7,
+      "member_name": "Flanners",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2025-12-01",
+      "member_id": 8,
+      "member_name": "Jerry",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2026-01-01",
+      "member_id": 1,
+      "member_name": "Salad",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2026-01-01",
+      "member_id": 2,
+      "member_name": "Just",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2026-01-01",
+      "member_id": 3,
+      "member_name": "Jan",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2026-01-01",
+      "member_id": 5,
+      "member_name": "Ox",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2026-01-01",
+      "member_id": 9,
+      "member_name": "Mearp",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2026-01-01",
+      "member_id": 7,
+      "member_name": "Flanners",
+      "amount_zar": 500,
+      "type": "contribution"
+    },
+    {
+      "date": "2026-01-01",
+      "member_id": 8,
+      "member_name": "Jerry",
+      "amount_zar": 500,
       "type": "contribution"
     }
   ],
   "fund_info": {
-    "name": "Augusta 2036 Bitcoin Fund",
-    "target_date": "2036-04-01",
+    "name": "ZARyder Cup Ryder Cup 2031 Fund",
+    "target_date": "2031-09-26",
     "target_amount_zar": 1000000,
     "created_date": "2021-10-01",
-    "description": "Pooled Bitcoin investment to fund Masters Tournament trip in 2036",
+    "description": "Pooled Bitcoin DCA fund for Ryder Cup 2031 trip to Spain (Camiral, Girona)",
     "btc_purchaser": "Salad",
-    "current_btc_holdings": 0.11107669,
-    "last_purchase_date": "2025-07-21",
+    "current_btc_holdings": 0.12221791,
+    "last_purchase_date": "2026-01-15",
     "member_transitions": {
       "Frank_left": "2023-09-30",
       "Mearp_joined": "2023-10-01",
       "Rich_Nischk_left": "2024-08-31",
       "Rich_Nischk_btc_withdrawn": 0.01323
-    }
+    },
+    "buyouts": [
+      {
+        "buyer": "Mearp",
+        "seller": "Frank",
+        "amount_zar": 4800,
+        "date": "2023-10-01",
+        "note": "Mearp bought out Frank's position for R4,800 (equal to Frank's total contributions)"
+      }
+    ]
   }
 }
