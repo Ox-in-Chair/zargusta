@@ -5,6 +5,7 @@ import { randomUUID } from 'node:crypto';
 import { DataManager } from './data-manager.js';
 import { getCurrentBtcPrice, getBtcHistory } from './btc-price.js';
 import { calculatePortfolio } from './portfolio.js';
+import { computeAnalytics } from './analytics.js';
 import type { ApiResponse } from '../shared/types.js';
 
 const API_VERSION = '2.0.0';
@@ -196,6 +197,33 @@ export function createRouter(dm: DataManager): Router {
   router.get('/btc/history', async (req: Request, res: Response) => {
     const days = Math.min(365, Math.max(1, Number(req.query.days) || 30));
     res.json(envelope(await getBtcHistory(days)));
+  });
+
+  // ── Analytics ──
+  router.get('/analytics/performance', async (_req: Request, res: Response) => {
+    try {
+      const members = dm.getMembers();
+      const contributions = dm.getContributions();
+      const purchases = dm.getPurchases();
+      const analytics = computeAnalytics(contributions, purchases, members);
+      const price = await getCurrentBtcPrice();
+      res.json(envelope({
+        ...analytics,
+        currentPrice: price,
+        liveValuation: {
+          totalBtc: analytics.costBasis.totalBtc,
+          valueZar: Math.round(analytics.costBasis.totalBtc * price.zar),
+          costBasisZar: analytics.costBasis.totalInvestedZar,
+          unrealisedPnlZar: Math.round(analytics.costBasis.totalBtc * price.zar - analytics.costBasis.totalInvestedZar),
+          roiPct: analytics.costBasis.totalInvestedZar > 0
+            ? Math.round(((analytics.costBasis.totalBtc * price.zar - analytics.costBasis.totalInvestedZar) / analytics.costBasis.totalInvestedZar) * 10000) / 100
+            : 0,
+        },
+      }));
+    } catch {
+      const err = errorEnvelope('Analytics computation failed', 500);
+      res.status(err.status).json(err.body);
+    }
   });
 
   return router;

@@ -23,6 +23,7 @@ import { loadTechNews } from './views/technews.js';
 import { loadSoccer } from './views/soccer.js';
 import { loadTennis } from './views/tennis.js';
 import { loadF1News } from './views/f1news.js';
+import { loadAnalytics } from './views/analytics.js';
 
 // ── Shared state ──────────────────────────────────────
 let priceHistory = [];
@@ -54,6 +55,7 @@ const viewLoaders = {
   soccer: loadSoccer,
   tennis: loadTennis,
   f1news: loadF1News,
+  analytics: loadAnalytics,
 };
 
 function showView(name) {
